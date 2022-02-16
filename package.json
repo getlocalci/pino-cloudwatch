@@ -1,6 +1,6 @@
 {
   "name": "@extensionengine/pino-cloudwatch",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "AWS CloudWatch Logs transport v7 for pino",
   "keywords": [
     "pino",
@@ -24,7 +24,6 @@
   ],
   "scripts": {
     "build": "rimraf dist && tsc",
-    "prepublish": "npm run build",
     "publish": "release-it"
   },
   "dependencies": {
@@ -42,6 +41,9 @@
     "access": "public"
   },
   "release-it": {
+    "hooks": {
+      "after:bump": "npm run build"
+    },
     "git": {
       "requireCleanWorkingDir": false
     },
