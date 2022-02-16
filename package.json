@@ -42,6 +42,9 @@
     "access": "public"
   },
   "release-it": {
+    "git": {
+      "requireCleanWorkingDir": false
+    },
     "github": {
       "release": true
     }
