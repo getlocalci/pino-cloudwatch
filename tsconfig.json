@@ -1,0 +1,15 @@
+{
+  "include": ["lib/**/*.ts"],
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "rootDir": "./lib",
+    "declaration": true,
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "alwaysStrict": true,
+    "skipLibCheck": true
+  }
+}

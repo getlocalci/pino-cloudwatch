@@ -1,0 +1,41 @@
+{
+  "name": "pino-cloudwatch",
+  "version": "0.0.1",
+  "description": "AWS CloudWatch Logs transport v7 for pino",
+  "keywords": [
+    "pino",
+    "cloudwatch",
+    "logger",
+    "transport"
+  ],
+  "homepage": "https://github.com/ExtensionEngine/pino-cloudwatch#readme",
+  "bugs": {
+    "url": "https://github.com/ExtensionEngine/pino-cloudwatch/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ikovac@github.com/ExtensionEngine/pino-cloudwatch.git"
+  },
+  "license": "MIT",
+  "author": "Ivo Kovacevic (info@extensionengine.com)",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "prepublish": "npm run build",
+    "publish": "np"
+  },
+  "dependencies": {
+    "@aws-sdk/client-cloudwatch-logs": "^3.51.0",
+    "pino-abstract-transport": "^0.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.18",
+    "np": "^7.6.0",
+    "pino": "^7.8.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.5"
+  }
+}
