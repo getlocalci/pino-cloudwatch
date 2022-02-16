@@ -44,6 +44,9 @@
     "hooks": {
       "after:bump": "npm run build"
     },
+    "git": {
+      "requireCleanWorkingDir": false
+    },
     "github": {
       "release": true
     }
