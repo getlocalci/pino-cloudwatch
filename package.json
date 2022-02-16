@@ -25,7 +25,7 @@
   "scripts": {
     "build": "rimraf dist && tsc",
     "prepublish": "npm run build",
-    "publish": "np"
+    "publish": "np --no-tests"
   },
   "dependencies": {
     "@aws-sdk/client-cloudwatch-logs": "^3.51.0",
