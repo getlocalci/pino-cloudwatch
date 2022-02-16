@@ -1,6 +1,6 @@
 {
   "name": "@extensionengine/pino-cloudwatch",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "AWS CloudWatch Logs transport v7 for pino",
   "keywords": [
     "pino",
