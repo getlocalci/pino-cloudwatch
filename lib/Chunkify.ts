@@ -18,7 +18,7 @@ class Chunkify extends Transform {
 
   constructor(options: ChunkifyOptions = {}) {
     super({ objectMode: true });
-    const mergedOptions = Object.assign({}, options, defaultOptions);
+    const mergedOptions = Object.assign({}, defaultOptions, options);
     this.#timeoutId = null;
     this.#buffer = [];
     this.#interval = mergedOptions.interval;
@@ -32,7 +32,7 @@ class Chunkify extends Transform {
   ) {
     this.#buffer.push(chunk);
     if (this.#buffer.length > this.#bufferLength) this.flush();
-    if (!this.#timeoutId) {
+    if (this.#interval && !this.#timeoutId) {
       this.#timeoutId = setTimeout(() => this.flush(), this.#interval);
     }
     callback();
