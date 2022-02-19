@@ -1,19 +1,17 @@
 import build from 'pino-abstract-transport';
 import CloudWatchStream, { CloudWatchStreamOptions } from './CloudWatchLogsStream';
-import Chunkify, { ChunkifyOptions } from './Chunkify';
+import ChunkifyStream, { ChunkifyStreamOptions } from './ChunkifyStream';
 import { pipeline } from 'stream/promises';
 
-type Options = CloudWatchStreamOptions & ChunkifyOptions;
+type Options = CloudWatchStreamOptions & ChunkifyStreamOptions;
 
 function createCloudWatchLogsTransport(options: Options) {
-  const chunkify = new Chunkify(options);
-  const stream = new CloudWatchStream(options);
-  return build(source => pipeline(source, chunkify, stream), {
+  const chunkify = new ChunkifyStream(options);
+  const cloudWatch = new CloudWatchStream(options);
+  return build(source => pipeline(source, chunkify, cloudWatch), {
     close(err: Error, cb: Function) {
       if (err) return cb(err);
-      stream.on('close', () => {
-        cb();
-      })
+      cloudWatch.on('close', () => cb())
     }
   });
 }

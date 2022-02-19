@@ -1,6 +1,6 @@
 import { Transform, TransformCallback } from 'stream';
 
-export type ChunkifyOptions = {
+export type ChunkifyStreamOptions = {
   interval?: number;
   bufferLength?: number;
 };
@@ -10,13 +10,13 @@ const defaultOptions = {
   bufferLength: 50
 };
 
-class Chunkify extends Transform {
+class ChunkifyStream extends Transform {
   #buffer: any[];
   #timeoutId: NodeJS.Timeout | null;
   #interval: number;
   #bufferLength: number;
 
-  constructor(options: ChunkifyOptions = {}) {
+  constructor(options: ChunkifyStreamOptions = {}) {
     super({ objectMode: true });
     const mergedOptions = Object.assign({}, defaultOptions, options);
     this.#timeoutId = null;
@@ -57,4 +57,4 @@ class Chunkify extends Transform {
   }
 }
 
-export default Chunkify;
+export default ChunkifyStream;
