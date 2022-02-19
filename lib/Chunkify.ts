@@ -16,7 +16,7 @@ class Chunkify extends Transform {
   #interval: number;
   #bufferLength: number;
 
-  constructor(options: ChunkifyOptions) {
+  constructor(options: ChunkifyOptions = {}) {
     super({ objectMode: true });
     const mergedOptions = Object.assign({}, options, defaultOptions);
     this.#timeoutId = null;
