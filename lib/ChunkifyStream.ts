@@ -43,14 +43,14 @@ class ChunkifyStream extends Transform {
     callback();
   }
 
-  flush() {
+  private flush() {
     this.clearTimeout();
     if (!this.#buffer.length) return;
     this.push(this.#buffer);
     this.#buffer = [];
   }
 
-  clearTimeout() {
+  private clearTimeout() {
     if (!this.#timeoutId) return;
     clearTimeout(this.#timeoutId);
     this.#timeoutId = null;
