@@ -32,7 +32,7 @@ class ChunkifyStream extends Transform {
   ) {
     this.#buffer.push(chunk);
     if (this.#buffer.length >= this.#bufferLength) this.flush();
-    if (this.#interval && !this.#timeoutId) {
+    if (!this.#timeoutId) {
       this.#timeoutId = setTimeout(() => this.flush(), this.#interval);
     }
     callback();
