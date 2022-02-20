@@ -1,5 +1,5 @@
 import test from 'ava';
-import ChunkifyStream from '../lib/ChunkifyStream';
+import ChunkifyStream from '../lib/chunkify-stream';
 import { pipeline } from 'stream/promises';
 import streamTest from 'streamtest';
 

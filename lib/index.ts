@@ -1,6 +1,6 @@
 import build from 'pino-abstract-transport';
-import CloudWatchStream, { CloudWatchStreamOptions } from './CloudWatchLogsStream';
-import ChunkifyStream, { ChunkifyStreamOptions } from './ChunkifyStream';
+import CloudWatchStream, { CloudWatchStreamOptions } from './cloudwatch-stream';
+import ChunkifyStream, { ChunkifyStreamOptions } from './chunkify-stream';
 import { pipeline } from 'stream/promises';
 
 type Options = CloudWatchStreamOptions & ChunkifyStreamOptions;
